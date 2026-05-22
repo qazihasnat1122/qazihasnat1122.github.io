@@ -311,6 +311,12 @@ body::-webkit-scrollbar-thumb:hover {
     max-width: 500px;
 }
 
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .hero-cta {
     display: flex;
     gap: var(--spacing-md);
@@ -392,21 +398,30 @@ body::-webkit-scrollbar-thumb:hover {
     height: 220px;
     border-radius: 50%;
     overflow: hidden;
-    position: relative;
-    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #111;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
 }
 
 .profile-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* keeps face properly inside circle */
-    object-position: center top; /* adjusts face position */
-    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
     display: block;
+}
+
+.profile-ring {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
 }
 
 @keyframes pulse {
@@ -1460,16 +1475,29 @@ section {
         font-size: 0.95rem;
     }
 
-    .profile-image {
-        width: 150px;
-        height: 150px;
-        font-size: 60px;
-    }
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: #111;
+}
 
-    .profile-ring {
-        width: 170px;
-        height: 170px;
-    }
+.profile-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    display: block;
+}
+
+.profile-ring {
+    width: 170px;
+    height: 170px;
+}
 
     .section-header h2 {
         font-size: 1.5rem;
